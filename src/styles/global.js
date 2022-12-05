@@ -16,4 +16,16 @@ export const GlobalStyle = createGlobalStyle`
     --color-red-negative: #E83F5B;
 
 }
+
+body{ 
+    background: var(--color-grey-4);
+    font-family: 'Inter', sans-serif;
+}
+
+.container {
+  padding: 0.6rem;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
 `;

@@ -25,6 +25,7 @@ export const RegisterPage = () => {
           Voltar
         </StyledButton>
       </header>
+
       <StyledFormRegister />
     </StyledRegisterPage>
   );

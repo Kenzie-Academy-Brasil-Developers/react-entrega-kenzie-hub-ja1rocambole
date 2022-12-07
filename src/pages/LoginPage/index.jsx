@@ -3,14 +3,14 @@ import { Logo } from "../../components/Logo";
 import { StyledFormLogin } from "../../components/FormLogin/style";
 import { StyledLoginPage } from "./style";
 
-export const LoginPage = () => {
+export const LoginPage = ({ setUser }) => {
   return (
     <StyledLoginPage className="container">
       <header>
         <Logo />
       </header>
 
-      <StyledFormLogin />
+      <StyledFormLogin setUser={setUser} />
     </StyledLoginPage>
   );
 };

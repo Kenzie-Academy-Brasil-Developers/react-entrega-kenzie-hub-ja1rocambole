@@ -1,16 +1,17 @@
 import React from "react";
+
 import { StyledTitle } from "../Title/style";
 import { StyledHeadLine } from "../HeadLine/style";
 import { StyledInput } from "../Input/style";
 import { StyledButton } from "../../styles/button";
 import { StyledSelect } from "../Select/style";
 import { formSchemaRegister } from "./schemaRegister";
-import { useForm } from "react-hook-form";
 
+import { useNavigate } from "react-router-dom";
+import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { api } from "../../services/api";
 import { toast } from "react-toastify";
-import { useNavigate } from "react-router-dom";
 
 export const FormRegister = ({ className }) => {
   const navigate = useNavigate();
@@ -23,17 +24,14 @@ export const FormRegister = ({ className }) => {
     resolver: yupResolver(formSchemaRegister),
   });
 
-  const submit = async (data) => {
-    console.log(data);
+  const postCreateUser = async (data) => {
     try {
       const response = await api.post("/users", data);
-      console.log(response);
       toast.success("Conta criada com sucesso!");
       setTimeout(() => {
         navigate("/");
       }, 4500);
     } catch (error) {
-      console.log(error);
       toast.error("Ops! Algo deu errado");
     }
   };
@@ -45,7 +43,7 @@ export const FormRegister = ({ className }) => {
         Rapido e grátis, vamos nessa
       </StyledHeadLine>
 
-      <form onSubmit={handleSubmit(submit)} noValidate>
+      <form onSubmit={handleSubmit(postCreateUser)} noValidate>
         <StyledInput
           id="name"
           label="Nome"

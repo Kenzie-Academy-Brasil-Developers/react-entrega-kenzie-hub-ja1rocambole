@@ -1,11 +1,10 @@
 import React from "react";
 import { StyledHeadLine } from "../HeadLine/style";
 
-export const Input = ({
+export const Select = ({
+  children,
   id,
   label,
-  type,
-  placeholder,
   className,
   register,
   errorMessage,
@@ -20,8 +19,9 @@ export const Input = ({
       ) : (
         <></>
       )}
-
-      <input id={id} type={type} placeholder={placeholder} {...register} />
+      <select id={id} {...register}>
+        {children}
+      </select>{" "}
     </fieldset>
   );
 };

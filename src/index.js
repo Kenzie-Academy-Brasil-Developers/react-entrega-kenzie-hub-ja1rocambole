@@ -6,12 +6,22 @@ import reportWebVitals from "./reportWebVitals";
 import { GlobalStyle } from "./styles/global";
 import { Reset } from "./styles/reset";
 
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
       <Reset />
       <GlobalStyle />
+
+      <ToastContainer
+        toastStyle={{
+          backgroundColor: "var(--color-grey-2)",
+          color: "var(--color-grey-0)",
+        }}
+      />
       <App />
     </BrowserRouter>
   </React.StrictMode>

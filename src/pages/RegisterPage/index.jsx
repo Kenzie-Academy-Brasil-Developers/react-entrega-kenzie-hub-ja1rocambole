@@ -9,24 +9,25 @@ export const RegisterPage = () => {
   const navigate = useNavigate();
 
   const goLogin = () => {
-    //"/login" deve ser uma rota criada previamente
     navigate("/");
   };
   return (
-    <StyledRegisterPage className="container">
-      <header>
-        <Logo />
+    <>
+      <StyledRegisterPage className="container">
+        <header>
+          <Logo />
 
-        <StyledButton
-          color="var(--color-grey-3)"
-          hoverColor="var(--color-grey-2)"
-          onClick={goLogin}
-        >
-          Voltar
-        </StyledButton>
-      </header>
+          <StyledButton
+            color="var(--color-grey-3)"
+            hoverColor="var(--color-grey-2)"
+            onClick={goLogin}
+          >
+            Voltar
+          </StyledButton>
+        </header>
 
-      <StyledFormRegister />
-    </StyledRegisterPage>
+        <StyledFormRegister />
+      </StyledRegisterPage>
+    </>
   );
 };

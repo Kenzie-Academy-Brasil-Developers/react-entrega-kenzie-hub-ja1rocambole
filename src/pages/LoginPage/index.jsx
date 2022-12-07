@@ -1,6 +1,16 @@
 import React from "react";
-import { H1 } from "../../components/h1";
+import { Logo } from "../../components/Logo";
+import { StyledFormLogin } from "../../components/FormLogin/style";
+import { StyledLoginPage } from "./style";
 
 export const LoginPage = () => {
-  return <H1>Login</H1>;
+  return (
+    <StyledLoginPage className="container">
+      <header>
+        <Logo />
+      </header>
+
+      <StyledFormLogin />
+    </StyledLoginPage>
+  );
 };

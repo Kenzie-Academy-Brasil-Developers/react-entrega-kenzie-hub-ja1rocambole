@@ -12,7 +12,10 @@ function App() {
     <Routes>
       <Route path="/" element={<LoginPage setUser={setUser} />} />
       <Route path="register" element={<RegisterPage />} />
-      <Route path="dashboard" element={<DashboardPage />} />
+      <Route
+        path="dashboard"
+        element={<DashboardPage user={user} setUser={setUser} />}
+      />
 
       <Route path="*" element={<ErrorPage />} />
     </Routes>

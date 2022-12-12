@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 
 import { StyledButton } from "../../styles/button";
 import { StyledHeadLine } from "../HeadLine/style";
@@ -6,15 +6,13 @@ import { StyledInput } from "../Input/style";
 import { StyledTitle } from "../Title/style";
 import { formSchemaLogin } from "./shemaLogin";
 
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { api } from "../../services/api";
-import { toast } from "react-toastify";
+import { UserContext } from "../../contexts/UserContext";
 
-export const FormLogin = ({ className, setUser }) => {
-  const [loading, setLoading] = useState(false);
+export const FormLogin = ({ className }) => {
+  const { loading, postLogin } = useContext(UserContext);
 
   const {
     register,
@@ -23,32 +21,15 @@ export const FormLogin = ({ className, setUser }) => {
   } = useForm({ resolver: yupResolver(formSchemaLogin) });
   const navigate = useNavigate();
 
-  const postLogin = async (data) => {
-    setLoading(true);
-    try {
-      const response = await api.post("/sessions", data);
-      setUser(response.data.user);
-
-      localStorage.setItem("@TOKEN", response.data.token);
-      localStorage.setItem("@USERID", response.data.user.id);
-
-      navigate("/dashboard");
-    } catch (error) {
-      toast.error("Ops! Algo deu errado");
-    } finally {
-      setLoading(false);
-    }
-  };
-
   const goRegister = () => {
     navigate("/register");
   };
 
   return (
     <div className={className}>
-      <StyledTitle title="one">Criar sua conta</StyledTitle>
+      <StyledTitle title="one">Login</StyledTitle>
 
-      <form onSubmit={handleSubmit(postLogin)}>
+      <form onSubmit={handleSubmit(postLogin)} noValidate>
         <StyledInput
           id="email"
           label="Email"

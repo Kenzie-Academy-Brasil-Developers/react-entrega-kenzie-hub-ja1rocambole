@@ -4,21 +4,19 @@ import { LoginPage } from "./pages/LoginPage";
 import { RegisterPage } from "./pages/RegisterPage";
 
 import { Route, Routes } from "react-router-dom";
-import { useState } from "react";
+import { UserProvider } from "./contexts/UserContext";
 
 function App() {
-  const [user, setUser] = useState();
   return (
-    <Routes>
-      <Route path="/" element={<LoginPage setUser={setUser} />} />
-      <Route path="register" element={<RegisterPage />} />
-      <Route
-        path="dashboard"
-        element={<DashboardPage user={user} setUser={setUser} />}
-      />
+    <UserProvider>
+      <Routes>
+        <Route path="/" element={<LoginPage />} />
+        <Route path="register" element={<RegisterPage />} />
+        <Route path="dashboard" element={<DashboardPage />} />
 
-      <Route path="*" element={<ErrorPage />} />
-    </Routes>
+        <Route path="*" element={<ErrorPage />} />
+      </Routes>
+    </UserProvider>
   );
 }
 

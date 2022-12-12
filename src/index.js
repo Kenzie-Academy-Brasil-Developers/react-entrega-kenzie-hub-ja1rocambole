@@ -16,13 +16,13 @@ root.render(
       <Reset />
       <GlobalStyle />
 
+      <App />
       <ToastContainer
         toastStyle={{
           backgroundColor: "var(--color-grey-2)",
           color: "var(--color-grey-0)",
         }}
       />
-      <App />
     </BrowserRouter>
   </React.StrictMode>
 );

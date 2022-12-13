@@ -27,16 +27,6 @@ export const StyledDashBoardPage = styled.div`
     align-items: center;
   }
 
-  .container-develop {
-    margin-top: 35px;
-  }
-  .container-develop > p {
-    margin-top: 23px;
-  }
-
   @media (max-width: 600px) {
-    .container-develop {
-      display: none;
-    }
   }
 `;

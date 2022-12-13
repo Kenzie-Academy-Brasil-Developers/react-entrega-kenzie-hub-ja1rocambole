@@ -7,11 +7,12 @@ import { StyledDashBoardPage } from "./style";
 
 import { Navigate, useNavigate } from "react-router-dom";
 import { UserContext } from "../../contexts/UserContext";
+import { ContainerTechs } from "../../components/ContainerTechs";
 
 export const DashboardPage = () => {
   const { user, setUser, globalLoading } = useContext(UserContext);
 
-  console.log(user);
+  // console.log(user.techs[0]);
 
   const logOut = () => {
     localStorage.removeItem("@TOKEN");
@@ -50,14 +51,7 @@ export const DashboardPage = () => {
 
         <hr />
 
-        <div className="container container-develop">
-          <StyledTitle title="one">
-            Que pena! Estamos em desenvolvimento {":("}
-          </StyledTitle>
-          <StyledHeadLine tag="p" color="var(--color-grey-0)">
-            Nossa aplicação está em desenvolvimento, em breve teremos novidades
-          </StyledHeadLine>
-        </div>
+        <ContainerTechs className="container" userTechs={user.techs} />
       </StyledDashBoardPage>
     );
   } else {

@@ -5,12 +5,14 @@ import { StyledCardTech } from "./style";
 
 export const CardTech = ({ tech }) => {
   return (
-    <StyledCardTech>
-      <StyledTitle title="three">{tech.title}</StyledTitle>
+    <>
+      <StyledCardTech onClick={() => console.log(tech)}>
+        <StyledTitle title="three">{tech.title}</StyledTitle>
 
-      <StyledHeadLine tag="p" color="var(--color-grey-1)">
-        {tech.status}
-      </StyledHeadLine>
-    </StyledCardTech>
+        <StyledHeadLine tag="p" color="var(--color-grey-1)">
+          {tech.status}
+        </StyledHeadLine>
+      </StyledCardTech>
+    </>
   );
 };

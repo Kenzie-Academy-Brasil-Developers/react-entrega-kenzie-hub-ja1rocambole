@@ -8,9 +8,9 @@ export const TechContext = createContext();
 export const TechProvider = ({ children }) => {
   const { setUser } = useContext(UserContext);
 
-  const [modalVisible, setModalVisible] = useState(false);
+  const [modalRegisterVisible, setModalRegisterVisible] = useState(false);
 
-  const postCreateUser = async (data) => {
+  const postCreateTech = async (data) => {
     const token = localStorage.getItem("@TOKEN");
 
     try {
@@ -27,19 +27,73 @@ export const TechProvider = ({ children }) => {
       });
 
       setUser(userResponse.data);
-
-      console.log(response);
     } catch (error) {
       console.log(error);
       toast.error("Ops! Algo deu errado");
     } finally {
-      setModalVisible(false);
+      setModalRegisterVisible(false);
+    }
+  };
+
+  const putEditTech = async (data, idTech, setModalEditRemoveVisible) => {
+    const token = localStorage.getItem("@TOKEN");
+
+    try {
+      const response = await api.put(`/users/techs/${idTech}`, data, {
+        headers: {
+          authorization: `Bearer ${token}`,
+        },
+      });
+
+      const userResponse = await api.get(`/profile`, {
+        headers: {
+          authorization: `Bearer ${token}`,
+        },
+      });
+
+      setUser(userResponse.data);
+    } catch (error) {
+      console.log(error);
+      toast.error("Ops! Algo deu errado");
+    } finally {
+      setModalEditRemoveVisible(false);
+    }
+  };
+
+  const deleteTech = async (idTech, setModalEditRemoveVisible) => {
+    const token = localStorage.getItem("@TOKEN");
+
+    try {
+      const response = await api.delete(`/users/techs/${idTech}`, {
+        headers: {
+          authorization: `Bearer ${token}`,
+        },
+      });
+
+      const userResponse = await api.get(`/profile`, {
+        headers: {
+          authorization: `Bearer ${token}`,
+        },
+      });
+
+      setUser(userResponse.data);
+    } catch (error) {
+      console.log(error);
+      toast.error("Ops! Algo deu errado");
+    } finally {
+      setModalEditRemoveVisible(false);
     }
   };
 
   return (
     <TechContext.Provider
-      value={{ postCreateUser, modalVisible, setModalVisible }}
+      value={{
+        postCreateTech,
+        modalRegisterVisible,
+        setModalRegisterVisible,
+        putEditTech,
+        deleteTech,
+      }}
     >
       {children}
     </TechContext.Provider>

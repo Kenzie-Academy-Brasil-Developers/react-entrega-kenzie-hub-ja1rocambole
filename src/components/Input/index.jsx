@@ -5,10 +5,12 @@ export const Input = ({
   id,
   label,
   type,
+  value,
   placeholder,
   className,
   register,
   errorMessage,
+  disabled,
 }) => {
   return (
     <fieldset className={className}>
@@ -21,7 +23,14 @@ export const Input = ({
         <></>
       )}
 
-      <input id={id} type={type} placeholder={placeholder} {...register} />
+      <input
+        id={id}
+        type={type}
+        placeholder={placeholder}
+        {...register}
+        value={value ? value : null}
+        disabled={disabled ? disabled : null}
+      />
     </fieldset>
   );
 };

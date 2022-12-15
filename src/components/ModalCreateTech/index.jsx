@@ -12,7 +12,7 @@ import { StyledButton } from "../../styles/button";
 import { TechContext } from "../../contexts/TechContext";
 
 export const ModalCreateTech = () => {
-  const { postCreateUser, setModalVisible } = useContext(TechContext);
+  const { postCreateTech, setModalRegisterVisible } = useContext(TechContext);
 
   const {
     register,
@@ -28,10 +28,10 @@ export const ModalCreateTech = () => {
         <div className="modal-header">
           <StyledTitle title="three">Cadastrar Tecnologia</StyledTitle>
 
-          <button onClick={() => setModalVisible(false)}>x</button>
+          <button onClick={() => setModalRegisterVisible(false)}>x</button>
         </div>
 
-        <form onSubmit={handleSubmit(postCreateUser)}>
+        <form onSubmit={handleSubmit(postCreateTech)}>
           <StyledInput
             id="title"
             label="Nome"

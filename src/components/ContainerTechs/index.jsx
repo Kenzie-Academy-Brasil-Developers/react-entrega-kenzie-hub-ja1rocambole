@@ -8,11 +8,12 @@ import { ModalCreateTech } from "../ModalCreateTech";
 import { TechContext } from "../../contexts/TechContext";
 
 export const ContainerTechs = ({ className, userTechs }) => {
-  const { modalVisible, setModalVisible } = useContext(TechContext);
+  const { modalRegisterVisible, setModalRegisterVisible } =
+    useContext(TechContext);
 
   return (
     <StyledContainerTechs className={className}>
-      {modalVisible ? <ModalCreateTech /> : null}
+      {modalRegisterVisible ? <ModalCreateTech /> : null}
 
       <div>
         <StyledTitle title="one">Tecnologias</StyledTitle>
@@ -20,7 +21,7 @@ export const ContainerTechs = ({ className, userTechs }) => {
         <StyledButton
           color="var(--color-grey-3)"
           hoverColor="var(--color-grey-2)"
-          onClick={() => setModalVisible(true)}
+          onClick={() => setModalRegisterVisible(true)}
         >
           +
         </StyledButton>

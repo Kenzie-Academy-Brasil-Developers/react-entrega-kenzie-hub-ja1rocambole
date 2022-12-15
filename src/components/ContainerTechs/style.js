@@ -25,5 +25,7 @@ export const StyledContainerTechs = styled.div`
     padding: 23px;
     background: var(--color-grey-3);
     border-radius: 4px;
+
+    overflow-y: auto;
   }
 `;

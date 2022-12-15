@@ -101,7 +101,7 @@ export const FormRegister = ({ className }) => {
           id="course_module"
           label="Selecionar módulo"
           register={register("course_module")}
-          errorMessage={errors.contact?.message}
+          errorMessage={errors.course_module?.message}
         >
           <option value="Primeiro módulo">Primeiro Modúlo</option>
           <option value="Segundo módulo">Segundo Modúlo</option>

@@ -12,8 +12,6 @@ import { ContainerTechs } from "../../components/ContainerTechs";
 export const DashboardPage = () => {
   const { user, setUser, globalLoading } = useContext(UserContext);
 
-  // console.log(user.techs[0]);
-
   const logOut = () => {
     localStorage.removeItem("@TOKEN");
     localStorage.removeItem("@USERID");

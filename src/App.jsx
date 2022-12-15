@@ -5,6 +5,7 @@ import { RegisterPage } from "./pages/RegisterPage";
 
 import { Route, Routes } from "react-router-dom";
 import { UserProvider } from "./contexts/UserContext";
+import { TechProvider } from "./contexts/TechContext";
 
 function App() {
   return (
@@ -12,7 +13,14 @@ function App() {
       <Routes>
         <Route path="/" element={<LoginPage />} />
         <Route path="register" element={<RegisterPage />} />
-        <Route path="dashboard" element={<DashboardPage />} />
+        <Route
+          path="dashboard"
+          element={
+            <TechProvider>
+              <DashboardPage />{" "}
+            </TechProvider>
+          }
+        />
 
         <Route path="*" element={<ErrorPage />} />
       </Routes>

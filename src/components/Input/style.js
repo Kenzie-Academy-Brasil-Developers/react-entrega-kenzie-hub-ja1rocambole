@@ -29,6 +29,9 @@ export const StyledInput = styled(Input)`
     outline: var(--color-grey-0);
     border: 1.2182px solid var(--color-grey-0);
   }
+  input:disabled {
+    color: var(--color-grey-1);
+  }
   input:focus::placeholder {
     color: var(--color-grey-0);
   }

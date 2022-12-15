@@ -22,6 +22,10 @@ body{
     font-family: 'Inter', sans-serif;
 }
 
+.display-none {
+  display: none;
+}
+
 .container {
   padding: 0.6rem;
   width: 100%;
